@@ -15,8 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cookbook",
     "/blog",
     "/documentation",
-    "/privacy",
-    "/terms",
   ].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
