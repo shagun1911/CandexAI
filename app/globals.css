@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
 }
 
 @theme inline {
@@ -12,15 +16,338 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* ========== Hero: light-theme animations (kore.ai / modern SaaS) ========== */
+
+/* Animated gradient mesh – soft shift */
+@keyframes hero-gradient-shift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.hero-gradient-mesh {
+  background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(147, 197, 253, 0.35), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(196, 181, 253, 0.25), transparent),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(224, 231, 255, 0.4), transparent);
+  animation: hero-gradient-shift 8s ease-in-out infinite;
+}
+
+/* Blurred orbs – float and breathe */
+@keyframes hero-orb-float {
+  0%, 100% { opacity: 0.55; transform: translate(0, 0) scale(1); }
+  33% { opacity: 0.75; transform: translate(3%, -4%) scale(1.04); }
+  66% { opacity: 0.65; transform: translate(-2%, 3%) scale(0.97); }
+}
+
+@keyframes hero-orb-float-slow {
+  0%, 100% { opacity: 0.45; transform: translate(0, 0) scale(1); }
+  50% { opacity: 0.65; transform: translate(-3%, 2%) scale(1.05); }
+}
+
+@keyframes hero-orb-drift {
+  0%, 100% { opacity: 0.4; transform: translate(0, 0) rotate(0deg); }
+  50% { opacity: 0.6; transform: translate(2%, -2%) rotate(2deg); }
+}
+
+.hero-orb {
+  animation: hero-orb-float 14s ease-in-out infinite;
+}
+
+.hero-orb-slow {
+  animation: hero-orb-float-slow 18s ease-in-out infinite;
+}
+
+.hero-orb-drift {
+  animation: hero-orb-drift 20s ease-in-out infinite;
+}
+
+/* Staggered text reveal on load */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+.hero-subtitle {
+  animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.hero-cta-wrap {
+  animation: hero-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+/* CTA button – soft glow pulse (light theme) */
+@keyframes hero-cta-glow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
+  50% { box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12); }
+}
+
+.hero-cta {
+  animation: hero-cta-glow 3s ease-in-out infinite;
+}
+
+.hero-cta:hover {
+  animation: none;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtle grid overlay (light theme) */
+@keyframes hero-grid-pulse {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(100, 116, 139, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 116, 139, 0.15) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: hero-grid-pulse 6s ease-in-out infinite;
+}
+
+/* Floating particles (small dots) */
+@keyframes hero-particle-float {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50% { transform: translate(0, -12px) scale(1.1); opacity: 0.7; }
+}
+
+.hero-particle {
+  animation: hero-particle-float 4s ease-in-out infinite;
+}
+
+/* Section enter (below hero) */
+@keyframes section-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-reveal {
+  animation: section-fade-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient-mesh,
+  .hero-orb,
+  .hero-orb-slow,
+  .hero-orb-drift,
+  .hero-grid,
+  .hero-particle {
+    animation: none;
+  }
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta-wrap {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-cta {
+    animation: none;
+  }
+  .section-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Legacy gradient shift (for compatibility) */
+@keyframes gradient-shift {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.hero-glow {
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+.hero-glow-delay-2 {
+  animation: gradient-shift 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.hero-glow-delay-4 {
+  animation: gradient-shift 8s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* Dropdown open: blur content below (kore.ai style) - portal overlay */
+.nav-dropdown-backdrop {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Smooth dropdown open/close (kore.ai style) */
+.nav-dropdown-panel {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.nav-dropdown-panel.nav-dropdown-panel-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Infinite slider - smooth, elegant */
+@keyframes integrations-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.integrations-slider-track {
+  animation: integrations-scroll 40s linear infinite;
+}
+
+.integrations-slider-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .integrations-slider-track {
+    animation: none;
+  }
+}
+
+/* ========== Scroll-triggered animations (elegant reveals) ========== */
+@keyframes reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-on-scroll.reveal-fade-only {
+  transform: none;
+}
+
+/* Stagger delays for children */
+.reveal-stagger-1 { transition-delay: 0.05s; }
+.reveal-stagger-2 { transition-delay: 0.1s; }
+.reveal-stagger-3 { transition-delay: 0.15s; }
+.reveal-stagger-4 { transition-delay: 0.2s; }
+.reveal-stagger-5 { transition-delay: 0.25s; }
+.reveal-stagger-6 { transition-delay: 0.3s; }
+.reveal-stagger-7 { transition-delay: 0.35s; }
+
+/* When parent .reveal-on-scroll gets .is-visible, reveal staggered children */
+.reveal-child {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.is-visible .reveal-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ accordion */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accordion-icon {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.accordion-icon.open {
+  transform: rotate(45deg);
+}
+
+/* Tab content switch (AI for Work industry tabs) */
+@keyframes tab-reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content-reveal {
+  animation: tab-reveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Solution page extras: card hover lift, stat pop */
+@keyframes stat-pop {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.solution-stat {
+  animation: stat-pop 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.solution-stat-delay-1 { animation-delay: 0.1s; }
+.solution-stat-delay-2 { animation-delay: 0.25s; }
+.solution-stat-delay-3 { animation-delay: 0.4s; }
+
+.solution-card-hover {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.solution-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+}
+
+/* Subtle shimmer for CTA buttons on solution pages */
+@keyframes cta-shimmer {
+  0%, 100% { background-position: 200% center; }
+  50% { background-position: -200% center; }
+}
+
+.cta-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  background-size: 200% 100%;
+  animation: cta-shimmer 4s ease-in-out infinite;
+}
+
+/* Process page: dotted border cards, stat circles */
+.process-capability-card {
+  border: 2px dashed rgba(0, 0, 0, 0.12);
+  transition: border-color 0.25s ease, box-shadow 0.3s ease;
+}
+.process-capability-card:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes stat-circle-fill {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+.stat-circle {
+  animation: stat-circle-fill 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }

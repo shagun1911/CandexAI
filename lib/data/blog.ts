@@ -1,0 +1,242 @@
+/**
+ * Blog / Insights page content. Separate data file for SEO and code-splitting.
+ * Content inspired by enterprise AI and privacy-first AI themes.
+ */
+
+export const blogPage = {
+  hero: {
+    headline: "Insights on Secure, Scalable AI",
+    subtitle: "Explore expert perspectives on privacy-first AI systems, on-premise solutions, and enterprise innovation—powered by CandexAI.",
+  },
+  topResources: [
+    { name: "Scaling AI insights", href: "/blog" },
+    { name: "AI use cases", href: "/use-cases" },
+    { name: "Enterprise strategy", href: "/technology" },
+  ],
+  quickLinks: [
+    { name: "About us", href: "#" },
+    { name: "Customer Stories", href: "/use-cases" },
+    { name: "Partners", href: "#" },
+    { name: "Blog", href: "/blog" },
+    { name: "Documentation", href: "/documentation" },
+    { name: "Contact us", href: "/schedule" },
+  ],
+  posts: [
+    {
+      id: "ai-healthcare",
+      title: "AI in Healthcare: Use Cases, Benefits and Future Trends",
+      description: "Explore AI's transformative role in healthcare: enhancing diagnostics, personalizing therapies, and driving medical advancements. Reshape patient care with AI's potential.",
+      href: "/blog/ai-healthcare",
+    },
+    {
+      id: "agentic-ai",
+      title: "What is Agentic AI and How Will it Affect Your Workplace?",
+      description: "Explore Agentic AI for your professional environment. Enhance productivity and foster innovation through advanced tech solutions.",
+      href: "/blog/agentic-ai",
+    },
+    {
+      id: "ai-impact-use-cases",
+      title: "Identifying the Impact of AI and Their Use Cases",
+      description: "Harnessing AI applications optimizes business performance. Examine practical implementations and prospective consequences.",
+      href: "/blog/ai-impact-use-cases",
+    },
+    {
+      id: "air-gapped-ai",
+      title: "Deploying Expert AI in Air-Gapped Environments",
+      description: "Learn best practices for secure, modular AI deployment in air-gapped systems—enabling sovereign, auditable, and high-performance AI for critical enterprise missions.",
+      href: "/blog/air-gapped-ai",
+    },
+    {
+      id: "small-expert-models",
+      title: "Why Small Expert Models Outperform General AI",
+      description: "Discover how small, specialized AI models cut costs, improve accuracy, and meet security and compliance needs—outperforming large models in enterprise settings.",
+      href: "/blog/small-expert-models",
+    },
+    {
+      id: "internal-ai-factors",
+      title: "10 Key Factors Before Launching Internal AI",
+      description: "Avoid the 80% failure rate in enterprise AI. Learn the top 10 factors—from infrastructure to ROI—that determine success in building internal AI capabilities.",
+      href: "/blog/internal-ai-factors",
+    },
+    {
+      id: "enterprise-vs-genai",
+      title: "Enterprise AI vs Generative AI: Which Drives Innovation Better?",
+      description: "Enhance innovation: Enterprise AI vs Generative AI. Elevate workflows with the right AI strategy.",
+      href: "/blog/enterprise-vs-genai",
+    },
+    {
+      id: "ai-crm",
+      title: "How AI in CRM Can Revolutionize Your Customer Engagement",
+      description: "Transform customer engagement with AI in CRM. Elevate your business strategy with innovative solutions.",
+      href: "/blog/ai-crm",
+    },
+    {
+      id: "ml-business-growth",
+      title: "How to Leverage Machine Learning to Boost Business Growth",
+      description: "Leverage machine learning for business growth and unlock the power of AI in your enterprise strategy.",
+      href: "/blog/ml-business-growth",
+    },
+    {
+      id: "enterprise-ai-strategy",
+      title: "The Essential Steps to Build Your Enterprise AI Strategy",
+      description: "Craft your winning enterprise AI strategy with expert guidance. Elevate efficiency and innovation.",
+      href: "/blog/enterprise-ai-strategy",
+    },
+    {
+      id: "enterprise-ai-platforms",
+      title: "Top Enterprise AI Platforms and How Businesses Use Them",
+      description: "Leverage top enterprise AI platforms for transformative business success. Unleash the power of AI in your operations.",
+      href: "/blog/enterprise-ai-platforms",
+    },
+    {
+      id: "process-automation-ai",
+      title: "Elevate Your Business Process Automation with AI",
+      description: "Leverage AI for business process automation. Enhance efficiency and innovation with intelligent solutions.",
+      href: "/blog/process-automation-ai",
+    },
+    {
+      id: "ai-transformation-guide",
+      title: "AI Transformation: A Comprehensive Guide to AI Adoption",
+      description: "Master AI transformation with our comprehensive guide. Elevate your business with strategic AI adoption.",
+      href: "/blog/ai-transformation-guide",
+    },
+    {
+      id: "enterprise-ai-solutions",
+      title: "Discover Powerful Enterprise AI Solutions for Your Business",
+      description: "Unleash game-changing enterprise AI solutions for your business and drive innovation to new heights.",
+      href: "/blog/enterprise-ai-solutions",
+    },
+    {
+      id: "build-ai-agents",
+      title: "The Essential Guide on How to Build AI Agents Successfully",
+      description: "Discover how to build AI agents successfully: from programming languages to machine learning types, unleash the power of AI!",
+      href: "/blog/build-ai-agents",
+    },
+    {
+      id: "ai-tools-productivity",
+      title: "Best AI Tools for Productivity",
+      description: "Enhance productivity with leading AI tools. Optimize workflow with Synthesia, ChatGPT, and Claude to unlock full operational potential.",
+      href: "/blog/ai-tools-productivity",
+    },
+    {
+      id: "types-ai-agents",
+      title: "Types of AI Agents to Automate Your Workflows",
+      description: "Explore the diverse realm of AI agents—ranging from reactive to learning agents—and transform your workflows today.",
+      href: "/blog/types-ai-agents",
+    },
+    {
+      id: "supply-chain-logistics",
+      title: "Mastering Logistics: How to Improve Supply Chain Operations",
+      description: "Discover methods to optimize supply chain operations. Learn strategies for reducing lead times and integrating artificial intelligence technologies.",
+      href: "/blog/supply-chain-logistics",
+    },
+    {
+      id: "generative-ai-scale",
+      title: "Scale Your Business with Generative AI",
+      description: "Harness the power of generative AI to drive business success. Strategically implement innovative solutions to enhance creativity and operational efficiency.",
+      href: "/blog/generative-ai-scale",
+    },
+    {
+      id: "ai-academic-research",
+      title: "Top AI Tools for Academic Research and Writing",
+      description: "Boost your academic research with top AI tools. From deep research to data analysis, discover how you can optimize your productivity.",
+      href: "/blog/ai-academic-research",
+    },
+    {
+      id: "ai-customer-support",
+      title: "Elevate Customer Experience with AI Customer Support",
+      description: "Elevate customer experience with AI-powered support. Enhance efficiency and ensure 24/7 availability for seamless interactions.",
+      href: "/blog/ai-customer-support",
+    },
+    {
+      id: "ai-cybersecurity",
+      title: "Use Cases of AI in Cyber Security",
+      description: "Discover the power of AI in cyber security. Enhance threat detection and automate responses for better protection.",
+      href: "/blog/ai-cybersecurity",
+    },
+    {
+      id: "enterprise-genai-guide",
+      title: "What is Enterprise Generative AI? A Comprehensive Guide",
+      description: "Understand enterprise generative AI: capabilities, deployment options, and how it differs from consumer-grade GenAI.",
+      href: "/blog/enterprise-genai-guide",
+    },
+    {
+      id: "expert-models-risk",
+      title: "How Small Expert Models Transform Risk Modelling",
+      description: "Small expert models deliver higher accuracy in risk and compliance with lower cost and full data control.",
+      href: "/blog/expert-models-risk",
+    },
+    {
+      id: "enterprise-ai-buyers-guide",
+      title: "Enterprise AI Buyer's Guide: Build vs. Buy Decision",
+      description: "Make informed build vs. buy decisions for enterprise AI. Evaluate total cost, time to value, and control.",
+      href: "/blog/enterprise-ai-buyers-guide",
+    },
+    {
+      id: "personal-ai-assistant",
+      title: "How to Create a Personal AI Assistant from Scratch",
+      description: "Develop a personalized AI assistant from scratch, combining expertise in Natural Language Processing (NLP) with advanced customization techniques.",
+      href: "/blog/personal-ai-assistant",
+    },
+    {
+      id: "enterprise-ai-use-cases",
+      title: "Popular Use Cases of AI in Enterprise",
+      description: "Discover the impact of enterprise AI use cases—from fraud detection to precision agriculture—driving innovation and transforming industries across the globe.",
+      href: "/blog/enterprise-ai-use-cases",
+    },
+    {
+      id: "agent-assist",
+      title: "What Is Agent Assist? Enhance Your Efficiency with AI",
+      description: "Agent Assist: AI-powered enhancement for optimizing productivity and customer interactions.",
+      href: "/blog/agent-assist",
+    },
+    {
+      id: "agentic-vs-agents",
+      title: "Agentic AI vs AI Agents: The Differences and Why They Matter",
+      description: "Explore the distinctions between agentic AI and AI agents and their significant implications for professionals.",
+      href: "/blog/agentic-vs-agents",
+    },
+    {
+      id: "ai-customer-support-business",
+      title: "How AI in Customer Support Can Enhance Your Business",
+      description: "Strategically implementing AI in customer support augments enterprise capabilities, offering various advantages, practical applications, and real-world examples.",
+      href: "/blog/ai-customer-support-business",
+    },
+    {
+      id: "ai-logistics",
+      title: "The Advantages of Artificial Intelligence in Logistics",
+      description: "Embrace the transformative advantages of artificial intelligence in logistics for enhanced performance and efficiency.",
+      href: "/blog/ai-logistics",
+    },
+    {
+      id: "ai-accounting",
+      title: "How AI is Reshaping Accounting",
+      description: "From automated reconciliation to predictive analytics—how AI is transforming finance and accounting workflows.",
+      href: "/blog/ai-accounting",
+    },
+    {
+      id: "ai-supply-chain",
+      title: "The Benefits of AI in Supply Chain Management",
+      description: "Optimize inventory, demand forecasting, and logistics with AI-driven supply chain solutions.",
+      href: "/blog/ai-supply-chain",
+    },
+    {
+      id: "ai-transforming-medicine",
+      title: "How Artificial Intelligence (AI) is Transforming Medicine",
+      description: "Clinical decision support, medical imaging, and personalized treatment—AI's role in healthcare delivery.",
+      href: "/blog/ai-transforming-medicine",
+    },
+    {
+      id: "ai-security-threats",
+      title: "AI Security: Protecting Your Business from Emerging Threats",
+      description: "Safeguard your AI systems and data from adversarial attacks, model theft, and compliance risks.",
+      href: "/blog/ai-security-threats",
+    },
+    {
+      id: "enterprise-ai-transform",
+      title: "How Enterprise AI Can Transform Your Business",
+      description: "From operational efficiency to new revenue streams—how enterprise AI drives transformation.",
+      href: "/blog/enterprise-ai-transform",
+    },
+  ],
+} as const;
