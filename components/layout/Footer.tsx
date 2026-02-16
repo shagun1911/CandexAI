@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand + contact */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo_CandexAI.png" alt="CandexAI" className="h-7 w-7 object-contain" width={28} height={28} />
+              <img src="/logo_candexAi.png" alt="candexAi" className="h-7 w-7 object-contain" width={28} height={28} />
               <span className="font-bold text-white text-lg tracking-tight">CandexAI</span>
             </div>
             <p className="text-sm mb-4">{footer.tagline}</p>

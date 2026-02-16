@@ -93,7 +93,7 @@ export default function Header() {
         >
           <div className="flex items-center justify-between w-full">
             <Link href="/" className="flex items-center gap-2 shrink-0 text-gray-900 hover:opacity-90 transition-opacity">
-              <img src="/logo_CandexAI.png" alt="CandexAI" className="h-8 w-8 object-contain" width={32} height={32} />
+              <img src="/logo_candexAi.png" alt="candexAi" className="h-8 w-8 object-contain" width={32} height={32} />
               <span className="font-bold text-lg tracking-tight">CandexAI</span>
             </Link>
 
