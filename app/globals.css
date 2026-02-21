@@ -346,17 +346,17 @@ h1, h2, h3, h4 {
   box-shadow: 0 6px 28px rgba(58, 111, 248, 0.35);
 }
 
-/* Hero primary: refined deep blue (enterprise) */
+/* Hero primary: black (enterprise) */
 .hero-btn-primary {
-  background: #1e3a5f;
+  background: #111827;
   color: #fff;
-  box-shadow: 0 4px 16px rgba(30, 58, 95, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .hero-btn-primary:hover {
-  background: #152a47;
+  background: #1f2937;
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(30, 58, 95, 0.35);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Hero secondary: outline only, no icon */
@@ -1284,7 +1284,7 @@ h1, h2, h3, h4 {
 }
 
 /* ── Prevent horizontal scroll site-wide ────────────────────────────────── */
-html, body { overflow-x: hidden; max-width: 100vw; }
+html, body { overflow-x: clip; max-width: 100vw; }
 
 /* ── Touch targets: minimum 44px ────────────────────────────────────────── */
 button, a, [role="button"] { -webkit-tap-highlight-color: transparent; }

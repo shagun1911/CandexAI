@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import LoaderWrapper from "@/components/ui/LoaderWrapper";
 import "./globals.css";
 
 /* ── Fonts ─────────────────────────────────────────────────────────────── */
@@ -79,7 +80,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <LoaderWrapper>
+          {children}
+        </LoaderWrapper>
       </body>
     </html>
   );
