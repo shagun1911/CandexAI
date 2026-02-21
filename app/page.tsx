@@ -2,10 +2,13 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import IntegrationsSlider from "@/components/ui/IntegrationsSlider";
+import ScrollPlayMedia from "@/components/ui/ScrollPlayMedia";
+import { WorkAnimation, ServiceAnimation, ProcessAnimation } from "@/components/ui/UseCaseCardAnimations";
+import CapabilitiesShowcase from "@/components/ui/CapabilitiesShowcase";
+import SecurityShowcase from "@/components/ui/SecurityShowcase";
 import {
   hero,
   valueProposition,
-  keyBenefits,
   useCases,
   enterpriseTrust,
   comprehensiveCapabilities,
@@ -15,270 +18,306 @@ import {
 
 export const metadata = {
   title: "CandexAI – AI Models and Applications for the Most Ambitious Organizations",
-  description: "Purpose-built AI for enterprise: privacy, control, and performance. Deploy on your infrastructure. Expert models, agentic workflows, sovereign deployment.",
+  description:
+    "Purpose-built AI for enterprise: privacy, control, and performance. Deploy on your infrastructure. Expert models, agentic workflows, sovereign deployment.",
 };
 
+/* ─── Single fixed gradient background ─────────────────────────────────── */
+function SiteBackground() {
+  return (
+    <div className="fixed-bg-layer" aria-hidden>
+      <div className="gradient-bg-base absolute inset-0" />
+      {/* Floating orbs */}
+
+      {/* Load-pulse rings — expand once on page load, then stop */}
+
+      {/* Subtle grid */}
+      <div className="hero-grid absolute inset-0 opacity-30" />
+    </div>
+  );
+}
+
+/* ─── Glass section wrapper ─────────────────────────────────────────────── */
+function GlassSection({
+  children,
+  className = "",
+  id,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+}) {
+  return (
+    <section
+      id={id}
+      className={`relative z-10 ${className}`}
+      style={{ background: "transparent" }}
+    >
+      {children}
+    </section>
+  );
+}
+
 export default function HomePage() {
-  const leftCapabilities = comprehensiveCapabilities.items.slice(0, 4);
-  const rightCapabilities = comprehensiveCapabilities.items.slice(4, 8);
+  const animationMap: Record<string, React.ReactNode> = {
+    work: <WorkAnimation />,
+    service: <ServiceAnimation />,
+    process: <ProcessAnimation />,
+  };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero background layer: extends behind header so embedded nav blends with hero */}
-      <div className="absolute top-0 left-0 right-0 min-h-[90vh] pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 hero-gradient-mesh" />
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-[15%] left-[10%] w-[520px] h-[520px] rounded-full bg-sky-200/50 blur-[110px] hero-orb" />
-          <div className="absolute bottom-[20%] right-[8%] w-[480px] h-[480px] rounded-full bg-indigo-100/55 blur-[100px] hero-orb-slow" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full bg-slate-200/45 blur-[90px] hero-orb-drift" style={{ animationDelay: "-2s" }} />
-          <div className="absolute top-[60%] left-[20%] w-[280px] h-[280px] rounded-full bg-blue-100/40 blur-[80px] hero-orb-slow" style={{ animationDelay: "-6s" }} />
-          <div className="absolute top-[25%] right-[15%] w-[320px] h-[320px] rounded-full bg-violet-100/35 blur-[85px] hero-orb" style={{ animationDelay: "-10s" }} />
-        </div>
-        <div className="absolute inset-0 hero-grid" />
-        <div className="absolute inset-0 overflow-hidden">
-          <span className="absolute top-[30%] left-[15%] w-2 h-2 rounded-full bg-sky-300/50 hero-particle" style={{ animationDelay: "0s" }} />
-          <span className="absolute top-[45%] right-[20%] w-2 h-2 rounded-full bg-indigo-300/50 hero-particle" style={{ animationDelay: "1.2s" }} />
-          <span className="absolute bottom-[35%] left-[25%] w-1.5 h-1.5 rounded-full bg-slate-300/50 hero-particle" style={{ animationDelay: "2.5s" }} />
-          <span className="absolute top-[55%] right-[30%] w-2 h-2 rounded-full bg-blue-200/50 hero-particle" style={{ animationDelay: "0.8s" }} />
-        </div>
-      </div>
+    <div className="relative min-h-screen">
+      {/* THE one fixed background – visible under everything */}
+      <SiteBackground />
 
       <Header />
 
-      {/* Hero – content only; background is in layer above so it sits behind header */}
-      <section className="relative min-h-[88vh] flex flex-col items-center justify-center pt-20 pb-28">
-        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center">
-          <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.12] mb-8 text-gray-900">
+      {/* ── Hero ──────────────────────────────────────────────────────── */}
+      <GlassSection className="min-h-[80vh] sm:min-h-[88vh] flex flex-col items-center justify-center pt-16 sm:pt-20 pb-16 sm:pb-28">
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          {/* Eyebrow badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold text-slate-800"
+            style={{
+              background: "rgba(58,111,248,0.1)",
+              border: "1px solid rgba(58,111,248,0.2)",
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            Enterprise AI Platform
+          </div>
+
+          <h1 className="hero-title text-3xl sm:text-4xl md:text-[3.5rem] font-bold tracking-tight leading-[1.1] mb-6 sm:mb-8 text-slate-800">
             {hero.mainHeading}
           </h1>
-          <p className="hero-subtitle text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+          <p className="hero-subtitle text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
             {hero.subHeading}
           </p>
-          <div className="hero-cta-wrap">
+
+          {/* Two CTA buttons */}
+          <div className="hero-cta-wrap flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               href={hero.cta.href}
-              className="hero-cta inline-flex items-center gap-2 h-12 px-7 rounded-xl bg-gray-900 text-white text-sm font-semibold hover:bg-gray-800 transition-all duration-300"
+              className="hero-btn-primary inline-flex items-center gap-2 h-12 px-7 rounded-xl text-sm font-semibold"
             >
               {hero.cta.label}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
+            <Link
+              href="/use-cases"
+              className="hero-btn-secondary inline-flex items-center gap-2 h-12 px-7 rounded-xl text-sm font-semibold backdrop-blur-sm"
+            >
+              View Our Work
+            </Link>
           </div>
         </div>
-      </section>
+      </GlassSection>
 
-      {/* Value proposition: More Precision, More Control */}
-      <section id="use-cases" className="section-reveal py-20 md:py-28 border-b border-gray-100 bg-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight">
+      {/* ── Value proposition ─────────────────────────────────────────── */}
+      <GlassSection id="use-cases" className="py-20 md:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6 tracking-tight">
             {valueProposition.heading}
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed mb-8">
+          <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto">
             {valueProposition.description}
           </p>
           <Link
             href={valueProposition.cta.href}
-            className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700"
+            className="inline-flex items-center gap-2 text-slate-800 font-semibold hover:text-blue-800"
           >
             {valueProposition.cta.label}
             <span aria-hidden>→</span>
           </Link>
         </div>
-      </section>
+      </GlassSection>
 
-      {/* Four key benefits - icon + title + description */}
-      <section className="py-24 md:py-32 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-            {keyBenefits.map((benefit) => (
-              <div key={benefit.id} className="p-6 rounded-2xl bg-white border border-gray-100 hover:border-violet-100 hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-xl bg-violet-100 flex items-center justify-center text-violet-600 mb-5">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+      {/* ── Three use-case cards (glass, no play button) ──────────────── */}
+      <GlassSection className="py-6 md:py-12 px-3 sm:px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
+            {useCases.map((card) => (
+              <div
+                key={card.id}
+                className="floating-card flex flex-col rounded-2xl overflow-hidden"
+              >
+                {/* Card header */}
+                <div className="px-6 pt-6 pb-4 flex items-start justify-between">
+                  <div>
+                    <h2 className="text-lg font-bold text-slate-800 mb-1 tracking-tight">
+                      {card.title}
+                    </h2>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {card.description}
+                    </p>
+                  </div>
+                  <Link
+                    href={card.href}
+                    className="flex-shrink-0 ml-3 mt-0.5 w-8 h-8 rounded-full flex items-center justify-center text-slate-500 hover:text-slate-800 transition-colors"
+                    style={{ background: "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.5)" }}
+                    aria-label={`Explore ${card.title}`}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
+
+                {/* Animation area – scroll-triggered, no play button */}
+                <div className="flex-1 px-4 pb-4 min-h-[280px]">
+                  <ScrollPlayMedia className="h-full min-h-[280px]">
+                    {animationMap[card.id] ?? null}
+                  </ScrollPlayMedia>
+                </div>
+
+                {/* Explore link */}
+                <div className="px-6 pb-5">
+                  <Link
+                    href={card.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-800 hover:text-blue-800 transition-colors"
+                  >
+                    Explore
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </GlassSection>
 
-      {/* Use cases - three pillars */}
-      <section className="relative py-24 md:py-32 border-t border-gray-100 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            {useCases.map((card) => (
-              <Link
-                key={card.id}
-                href={card.href}
-                className="group block p-8 rounded-2xl border border-gray-100 bg-white hover:border-violet-200 hover:shadow-lg transition-all duration-200"
-              >
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight group-hover:text-violet-600 transition-colors">
-                  {card.title}
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">{card.description}</p>
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 group-hover:bg-violet-100 transition-colors">
-                  <svg className="w-5 h-5 text-gray-600 group-hover:text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Key benefits removed — now lives on /scaling-ai-insights */}
 
-      {/* Own Your AI - short value prop */}
-      <section className="py-20 md:py-28 bg-gray-50/50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">
-            <span className="text-gray-900">Own Your AI</span>{" "}
+      {/* ── Own Your AI ───────────────────────────────────────────────── */}
+      <GlassSection className="py-14 sm:py-20 md:py-28">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-8 tracking-tight">
+            Own Your AI
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
-            CandexAI delivers modular AI systems, fully deployed in your infrastructure—designed for organizations where{" "}
-            <span className="font-semibold text-violet-600">privacy</span>,{" "}
-            <span className="font-semibold text-violet-600">control</span>, and{" "}
-            <span className="font-semibold text-violet-600">performance</span> are essential.
+          <p className="text-xl text-slate-600 leading-relaxed">
+            CandexAI delivers modular AI systems, fully deployed in your infrastructure—designed for
+            organizations where{" "}
+            <span className="font-semibold text-slate-800">privacy</span>,{" "}
+            <span className="font-semibold text-slate-800">control</span>, and{" "}
+            <span className="font-semibold text-slate-800">performance</span> are essential.
           </p>
         </div>
-      </section>
+      </GlassSection>
 
-      {/* Designed for Absolute Security - two-column blocks */}
-      <section id="technology" className="py-24 md:py-32 border-t border-gray-100 bg-white">
+      {/* ── Security showcase — kore.ai style ────────────────────────── */}
+      <GlassSection id="technology" className="py-14 sm:py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-16 text-center tracking-tight">
-            {securitySection.mainHeading}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-            {securitySection.blocks.map((block) => (
-              <div key={block.id} className="flex flex-col md:flex-row md:items-start gap-6 p-8 rounded-2xl border border-gray-100 bg-gray-50/30">
-                <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{block.heading}</h3>
-                  <p className="text-gray-600 leading-relaxed">{block.description}</p>
-                  {block.cta && (
-                    <Link
-                      href={block.cta.href}
-                      className="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold hover:text-blue-700"
-                    >
-                      {block.cta.label}
-                      <span aria-hidden>→</span>
-                    </Link>
-                  )}
-                </div>
-                <div className="w-24 h-24 rounded-xl bg-violet-100 flex items-center justify-center shrink-0">
-                  <svg className="w-10 h-10 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-              </div>
-            ))}
-          </div>
+          <SecurityShowcase />
         </div>
-      </section>
+      </GlassSection>
 
-      {/* Enterprise Privacy & Data Security - three columns */}
-      <section className="py-24 md:py-32 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="text-center text-sm font-medium text-violet-300 mb-4">{enterpriseTrust.eyebrow}</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-tight">
-            {enterpriseTrust.heading}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {enterpriseTrust.items.map((item) => (
-              <div key={item.title} className="text-center">
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Comprehensive Capabilities - two-column layout */}
-      <section className="py-24 md:py-32 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 mb-16">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-                {comprehensiveCapabilities.sectionHeading}
-              </h2>
-              <p className="text-xl text-gray-600 max-w-xl">
-                {comprehensiveCapabilities.sectionSubheading}
-              </p>
-              <Link
-                href={comprehensiveCapabilities.cta.href}
-                className="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold hover:text-blue-700"
-              >
-                {comprehensiveCapabilities.cta.label}
-                <span aria-hidden>→</span>
-              </Link>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
-            <div className="space-y-8">
-              {leftCapabilities.map((cap) => (
-                <div key={cap.title}>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1.5">{cap.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{cap.description}</p>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-8">
-              {rightCapabilities.map((cap) => (
-                <div key={cap.title}>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1.5">{cap.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{cap.description}</p>
+      {/* ── Enterprise trust (glass dark strip) ───────────────────────── */}
+      <GlassSection className="py-24 md:py-28">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div
+            className="rounded-3xl px-10 py-16 text-center"
+            style={{
+              background: "linear-gradient(135deg, rgba(14,26,43,0.92) 0%, rgba(15,23,42,0.88) 100%)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.2)",
+            }}
+          >
+            <p className="text-sm font-medium text-slate-500 mb-3 tracking-widest uppercase">
+              {enterpriseTrust.eyebrow}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-14 tracking-tight">
+              {enterpriseTrust.heading}
+            </h2>
+            <div className="grid md:grid-cols-3 gap-12">
+              {enterpriseTrust.items.map((item) => (
+                <div key={item.title} className="text-center">
+                  <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-slate-400 leading-relaxed text-sm">{item.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </GlassSection>
 
-      {/* Powered by Industry-Leading Technology + slider */}
-      <section className="py-24 md:py-32 overflow-hidden bg-white">
+      {/* ── Capabilities showcase (kore.ai tabbed card) ───────────────── */}
+      <GlassSection className="py-20 md:py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          {/* Section heading above the card */}
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4 tracking-tight">
+              {comprehensiveCapabilities.sectionHeading}
+            </h2>
+            <p className="text-lg text-slate-500 max-w-xl mx-auto">
+              {comprehensiveCapabilities.sectionSubheading}
+            </p>
+          </div>
+          {/* kore.ai-style showcase card */}
+          <CapabilitiesShowcase />
+        </div>
+      </GlassSection>
+
+      {/* ── Integrations slider ────────────────────────────────────────── */}
+      <GlassSection className="py-24 md:py-28 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-            Powered by Industry-Leading Technology{" "}
-          
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4 tracking-tight">
+            Powered by Industry-Leading Technology
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             We integrate the best tools and platforms to deliver unmatched AI experiences.
           </p>
         </div>
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          {/* Fade edges */}
+          <div
+            className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to right, #F5F9FF, transparent)" }}
+          />
+          <div
+            className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+            style={{ background: "linear-gradient(to left, #F5F9FF, transparent)" }}
+          />
           <IntegrationsSlider />
         </div>
-      </section>
+      </GlassSection>
 
-      {/* CTA - from site data */}
-      <section className="py-24 md:py-32 bg-gray-900">
+      {/* ── CTA ───────────────────────────────────────────────────────── */}
+      <GlassSection className="py-24 md:py-28">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            {ctaSection.heading}
-          </h2>
-          <p className="text-xl text-gray-400 leading-relaxed mb-10">
-            {ctaSection.description}
-          </p>
-          <Link
-            href={ctaSection.buttonHref}
-            className="inline-flex items-center gap-2 h-14 px-8 rounded-xl bg-white text-gray-900 font-semibold hover:bg-gray-100 transition-colors"
+          <div
+            className="rounded-3xl px-10 py-16"
+            style={{
+              background: "linear-gradient(135deg, rgba(14,26,43,0.92) 0%, rgba(30,58,95,0.88) 100%)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.18)",
+            }}
           >
-            {ctaSection.buttonLabel}
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-          <p className="text-sm text-gray-500 mt-8">
-            {ctaSection.footnote}
-          </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+              {ctaSection.heading}
+            </h2>
+            <p className="text-xl text-slate-300 leading-relaxed mb-10">
+              {ctaSection.description}
+            </p>
+            <Link
+              href={ctaSection.buttonHref}
+              className="inline-flex items-center gap-2 h-14 px-8 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-100 transition-colors"
+            >
+              {ctaSection.buttonLabel}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <p className="text-sm text-slate-400 mt-8">{ctaSection.footnote}</p>
+          </div>
         </div>
-      </section>
+      </GlassSection>
 
       <Footer />
     </div>

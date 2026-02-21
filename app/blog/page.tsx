@@ -62,8 +62,8 @@ export default function BlogPage() {
       </section>
 
       {/* Article grid */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-16 md:py-14 sm:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <AnimateOnScroll className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Latest insights</h2>
             <p className="text-gray-600">Expert perspectives on enterprise AI, security, and innovation.</p>
@@ -86,7 +86,7 @@ export default function BlogPage() {
                   <div className="p-6">
                     <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">{post.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-4">{post.description}</p>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors">
                       Read more
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

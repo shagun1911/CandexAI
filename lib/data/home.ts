@@ -21,11 +21,11 @@ export const keyBenefits = [
   { id: "upgradability", title: "Embedded Upgradability", description: "Future-proofed performance with continuous updates and ongoing support." },
 ] as const;
 
-export const useCases = [
+export const useCases: { id: string; title: string; description: string; href: string; videoSrc?: string }[] = [
   { id: "work", title: "AI for Work", description: "Search across silos, automate workflows, orchestrate AI agents and govern with confidence enterprise-wide.", href: "/ai-for-work" },
   { id: "service", title: "AI for Service", description: "Leverage generative AI to empower customers and create differentiated service experiences.", href: "/ai-for-service" },
   { id: "process", title: "AI for Process", description: "Streamline knowledge-intensive business processes with autonomous AI agents and agentic workflows.", href: "/ai-for-process" },
-] as const;
+];
 
 export const enterpriseTrust = {
   eyebrow: "The Gold Standard in",

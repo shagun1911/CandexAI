@@ -57,7 +57,7 @@ export default function TechnologyPage() {
                   <ul className="space-y-2 text-gray-600">
                     {domainSpecificIntelligence.domains.map((d, i) => (
                       <li key={i} className="flex gap-2">
-                        <span className="text-violet-500 shrink-0">•</span>
+                        <span className="text-slate-500 shrink-0">•</span>
                         {d}
                       </li>
                     ))}
@@ -91,7 +91,7 @@ export default function TechnologyPage() {
                 <ul className="space-y-4">
                   {modelControlProtocol.capabilities.map((cap) => (
                     <li key={cap.title} className="flex gap-3">
-                      <span className="text-violet-500 shrink-0">→</span>
+                      <span className="text-slate-500 shrink-0">→</span>
                       <div>
                         <h4 className="font-bold text-gray-900">{cap.title}</h4>
                         <p className="text-gray-600 text-sm">{cap.description}</p>

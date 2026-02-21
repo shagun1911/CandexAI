@@ -1,68 +1,55 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/* ── Fonts ─────────────────────────────────────────────────────────────── */
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://candexai.com";
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#F5F9FF",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "candexAi | Enterprise AI Models & Applications",
-    template: "%s | candexAi",
+    default: "CandexAI | Enterprise AI Models & Applications",
+    template: "%s | CandexAI",
   },
   description:
     "Purpose-built AI for the most ambitious organizations. Privacy, control, and performance. Deploy expert models and agentic workflows entirely on your infrastructure.",
   keywords: [
-    "enterprise AI",
-    "AI models",
-    "sovereign AI",
-    "on-premise AI",
-    "agentic workflows",
-    "privacy-first AI",
-    "CandexAI",
-    "expert models",
+    "enterprise AI", "AI models", "sovereign AI", "on-premise AI",
+    "agentic workflows", "privacy-first AI", "CandexAI", "expert models",
   ],
-  authors: [{ name: "candexAi", url: siteUrl }],
-  creator: "candexAi",
+  authors: [{ name: "CandexAI", url: siteUrl }],
+  creator: "CandexAI",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "candexAi",
-    title: "candexAi | Enterprise AI Models & Applications",
-    description:
-      "Purpose-built AI for the most ambitious organizations. Privacy, control, and performance. Deploy on your infrastructure.",
-    images: [
-      {
-        url: "/logo_candexAi.png",
-        width: 512,
-        height: 512,
-        alt: "candexAi",
-      },
-    ],
+    siteName: "CandexAI",
+    title: "CandexAI | Enterprise AI Models & Applications",
+    description: "Purpose-built AI for the most ambitious organizations.",
+    images: [{ url: "/logo_candexAi.png", width: 512, height: 512, alt: "CandexAI" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "candexAi | Enterprise AI Models & Applications",
-    description:
-      "Purpose-built AI for the most ambitious organizations. Privacy, control, and performance.",
+    title: "CandexAI | Enterprise AI Models & Applications",
+    description: "Purpose-built AI for the most ambitious organizations.",
     images: ["/logo_candexAi.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
-  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: { canonical: siteUrl },
   category: "technology",
 };
@@ -70,23 +57,23 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "candexAi",
+  name: "CandexAI",
   url: siteUrl,
   logo: `${siteUrl}/logo_candexAi.png`,
-  description:
-    "Purpose-built AI for the most ambitious organizations. Privacy, control, and performance. Deploy expert models and agentic workflows on your infrastructure.",
+  description: "Purpose-built AI for the most ambitious organizations.",
   sameAs: [],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={jakarta.variable}>
+      <head>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="font-sans antialiased min-h-screen"
+        style={{ background: "var(--background)", color: "var(--foreground)" }}
       >
         <script
           type="application/ld+json"

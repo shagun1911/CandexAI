@@ -49,9 +49,9 @@ export default async function BlogPostPage({ params }: Props) {
             and how it connects to secure, sovereign AI deployment.
           </p>
           <p className="text-gray-700 leading-relaxed mt-4">
-            For more resources, visit our <Link href="/use-cases" className="text-blue-600 hover:underline">use cases</Link>, 
-            <Link href="/technology" className="text-blue-600 hover:underline ml-1">technology</Link>, and 
-            <Link href="/documentation" className="text-blue-600 hover:underline ml-1">documentation</Link> pages.
+            For more resources, visit our <Link href="/use-cases" className="text-slate-700 hover:underline">use cases</Link>, 
+            <Link href="/technology" className="text-slate-700 hover:underline ml-1">technology</Link>, and 
+            <Link href="/documentation" className="text-slate-700 hover:underline ml-1">documentation</Link> pages.
           </p>
         </div>
       </article>

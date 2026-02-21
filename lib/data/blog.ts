@@ -238,5 +238,23 @@ export const blogPage = {
       description: "From operational efficiency to new revenue streams—how enterprise AI drives transformation.",
       href: "/blog/enterprise-ai-transform",
     },
+    {
+      id: "parallel-agent-processing",
+      title: "Parallel Agent Processing: How Multi-Agent Architectures Scale Enterprise AI",
+      description: "An architectural deep-dive into how parallel agent orchestration enables enterprises to process thousands of complex workflows simultaneously without throughput bottlenecks or latency penalties.",
+      href: "/blog/parallel-agent-processing",
+    },
+    {
+      id: "ai-security-best-practices",
+      title: "AI Security Best Practices for the Enterprise: A Complete Framework",
+      description: "Everything you need to know about deploying AI securely at enterprise scale — air-gapped architectures, RBAC, audit trails, model poisoning prevention, and zero-trust principles for AI systems.",
+      href: "/blog/ai-security-best-practices",
+    },
+    {
+      id: "scaling-to-production",
+      title: "Scaling AI to Production: Infrastructure, Monitoring, and MLOps at Enterprise Scale",
+      description: "A practical guide to the infrastructure decisions, monitoring strategies, and MLOps practices that separate AI proof-of-concepts from production AI systems that stay reliable under real enterprise load.",
+      href: "/blog/scaling-to-production",
+    },
   ],
 } as const;

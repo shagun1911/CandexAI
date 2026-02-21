@@ -58,14 +58,14 @@ export default function DocumentationPage() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="/schedule"
-                  className="text-sm font-semibold text-blue-600 hover:text-blue-700"
+                  className="text-sm font-semibold text-slate-700 hover:text-blue-700"
                 >
                   Get API Key →
                 </Link>
                 <br />
                 <Link
                   href="/technology"
-                  className="text-sm font-semibold text-blue-600 hover:text-blue-700 mt-2 inline-block"
+                  className="text-sm font-semibold text-slate-700 hover:text-blue-700 mt-2 inline-block"
                 >
                   Try Expert Models →
                 </Link>
@@ -94,7 +94,7 @@ export default function DocumentationPage() {
                     <ul className="space-y-2">
                       {sec.links.map((link) => (
                         <li key={link.label}>
-                          <a href={link.href} className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                          <a href={link.href} className="text-sm font-medium text-slate-700 hover:text-blue-700">
                             {link.label}
                           </a>
                         </li>

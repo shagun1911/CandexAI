@@ -6,9 +6,9 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="max-w-7xl mx-auto px-6 py-24">
+      <main className="max-w-7xl mx-auto px-6 py-14 sm:py-24">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-center">
-          Choose Your <span className="bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">Perfect Plan</span>
+          Choose Your Perfect Plan
         </h1>
         <p className="text-xl text-gray-600 text-center mb-12">
           From simple websites to enterprise-grade platforms. We build solutions that scale with your business.
